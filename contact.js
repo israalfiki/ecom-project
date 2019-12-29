@@ -13,18 +13,21 @@
 
     let clickHandler=()=>{
         let nameVal=name.value;
-        console.log(nameVal,email.value,subject.value,message.value);   
+        let emailVal=email.value;
+        let subjectVal=subject.value;
+        let messageVal=message.value;
+        console.log(nameVal,emailVal,subjectVal,messageVal);   
         let data={
             name : nameVal,
-            email: email.value,
-            subject: subject.value,
-            message: message.value
+            email: emailVal,
+            subject: subjectVal,
+            message: messageVal
         };
         console.log(data);
         let json=JSON.stringify(data);
         // console.log(json);
         // console.log(typeof(json));
-        fetchHandler(json);
+      xhrHandler(json);
 
     };    
 
@@ -53,7 +56,7 @@ const METHOD = 'POST';
 let xhr = new XMLHttpRequest();
 xhr.open(METHOD, URL);
 
-xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+xhr.setRequestHeader("Content-Type", "application/json");
 
 // console.log(xhr.readyState);
 // console.log(xhr.status);
