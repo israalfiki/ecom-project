@@ -13,8 +13,13 @@ xhr.onerror = (err) => {
 xhr.onload = (res) => {
     if(xhr.status == 200){
         const RES = JSON.parse(xhr.response);
-        const PRODUCT=RES.ProductCollection[5];
-        console.log(RES.ProductCollection[0].Name);
+        const ID=getParameterByName('id');
+        console.log(ID);
+        const ALLPRODUCTS=RES.ProductCollection;
+        console.log(ALLPRODUCTS);
+        const PRODUCT = ALLPRODUCTS.find(Product => Product.ProductId === ID);
+        console.log(PRODUCT);
+
         const IMG = new Image();
         IMG.src = PRODUCT.ProductPicUrl;
         IMG.setAttribute("class","img-fluid");
@@ -38,4 +43,14 @@ xhr.onload = (res) => {
         PRICE.innerHTML="$" + PRODUCT.Price;
         pricediv.appendChild(PRICE);
     }
+}
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
