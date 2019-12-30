@@ -101,7 +101,7 @@ function getDetails(data) {
             // console.log(myArr);
             let json = JSON.stringify(myArr);
             localStorage.setItem('product', json);
-
+            getSum(data);
             
 
 
