@@ -42,8 +42,8 @@ function displayProducts(data){
             price.setAttribute('class','text-danger');
             price.innerHTML = "$" + products[counter].Price;
             var productButton = document.createElement('button');
-            productButton.innerHTML ="<strong>+<strong>"            
-            productButton.setAttribute('class','btn btn-dark btn-sm')
+            productButton.innerHTML ="<img src='../assets/cart2.png' height='30' class='rounded-circle'>"            
+            productButton.setAttribute('class','btn btn-dark btn-sm rounded-circle')
             col.appendChild(model);
             col.appendChild(a);
             col.appendChild(price);
