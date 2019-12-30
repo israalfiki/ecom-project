@@ -63,7 +63,6 @@ function displayProducts(data) {
 
 }
 
-
 //function to add events to price button
 function getDetails(data) {
     let products = data.ProductCollection;
@@ -110,8 +109,8 @@ function getDetails(data) {
     })
 
 }
-
-function getSum(data){
+/// This is the function you are going to use in the cart page as well as the getProducts() function.
+function getSum(data){  
 let products = data.ProductCollection;
      //get local storage data, sum, quantity 
  if (localStorage.hasOwnProperty('product') == true) {

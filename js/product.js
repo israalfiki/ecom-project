@@ -45,14 +45,14 @@ xhr.onload = (res) => {
         pricediv.appendChild(PRICE);
 
         const Quantity =document.createElement('form');
-        Quantity.innerHTML="<p class='mt-4 mb-1'> <b>Quantity: </b></p> <input type='number' name='quantity' value=1 min=1 max="+ PRODUCT.Quantity  + " class='form-control rounded-pill w-75'>";
+        Quantity.innerHTML="<p class='mt-4 mb-1'> <b>Quantity: </b></p> <input type='number' name='quantity' id='q' value=1 min=1 max="+ PRODUCT.Quantity  + " class='form-control rounded-pill w-75'>";
 
         let addBtn=document.createElement('p');
        addBtn.innerHTML="<a class='btn  btn-secondary rounded-pill w-100  p-lg-2 mt-4 mb-0 text-light cart' href='#' role='button' id=" + ID +" > <img src='../assets/cart.png' height='30'>  <b>Add to cart</b></a>";
        Quantity.appendChild(addBtn);
 
         pricediv.appendChild(Quantity);
-
+        let quantityInput= document.querySelector("#q");
         let cartBtn=document.querySelector('.cart');
         let myArr=[];
         cartBtn.addEventListener('click', (e) => {
@@ -70,7 +70,8 @@ xhr.onload = (res) => {
                     if(myArr[result].quantity==PRODUCT.Quantity)
                     alert("This is the maximum limit to order of this product!");
                     else
-                    myArr[result].quantity++;
+                    console.log(quantityInput.value);
+                    myArr[result].quantity=Number(quantityInput.value);
                 }
         
                 else {
