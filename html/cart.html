@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cart</title>
+    <style>
+        span{
+            margin-left:280px;
+        }
+        #total{
+            /* width: 200px;
+            height: 200px; */
+            position: absolute;
+            margin-left: 800px;
+            margin-top: 20px;
+
+        }
+        h6{
+            margin-right: 55px;
+        }
+        .img-margin{
+            margin-left: 200px;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"> 
+
+</head>
+<body>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <nav class="navbar navbar-expand-md navbar-light  fixed-top ">
+        <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon navbar-light"></span>
+        </button>
+        <div class="collapse navbar-collapse bg-white " id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item ">
+              <a class="nav-link" href="home.html">Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="contact.html">Contact Us</a>
+        </li>
+       </ul>
+       </div>
+    </nav>
+    <br><br><br>
+    <!-- <div class="container"> -->
+        <h1 class="text-center mt-5"> Cart</h1> 
+        <div style="margin-top: 50px;">
+          <span>Product</span>
+          <span>Price</span>
+          <span>Quantity</span>
+          <span>Total</span>
+        </div>
+        <hr style="width: 80%;"> 
+        <div id="productsContainer"> 
+
+        </div>
+        <div class="row">
+            <div  class ="col-lg-6"id="total">
+                <h3>Cart Total</h3>
+                <hr style="width: 80%;"> 
+                <h6 style="display: inline-block;"> Total </h6> 
+                <h6 id= "FinalTotal"style="display: inline-block;"></h6>
+                
+            </div>
+
+        </div>
+       
+        
+
+
+    <!-- </div> -->
+    <script src="../js/cart.js"></script>
+    
+</body>
+</html>
