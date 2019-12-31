@@ -21,8 +21,24 @@
             margin-right: 55px;
         }
         .img-margin{
+            width: 125px;
             margin-left: 200px;
+            float: left;
         }
+        .price{
+            margin-left: 100px;
+
+        }
+        @media only screen and (max-width: 600px){
+            .img-margin{
+                float: none;
+            }
+            #tohide{
+                visibility: hidden;
+            }
+
+        }
+
     </style>
     <link rel="stylesheet" href="../css/bootstrap.min.css"> 
 
@@ -55,7 +71,7 @@
     <br><br><br>
     <!-- <div class="container"> -->
         <h1 class="text-center mt-5"> Cart</h1> 
-        <div style="margin-top: 50px;">
+        <div id="tohide" style="margin-top: 50px;">
           <span>Product</span>
           <span>Price</span>
           <span>Quantity</span>
@@ -65,12 +81,12 @@
         <div id="productsContainer"> 
 
         </div>
-        <div class="row">
+        <div  class="row">
             <div  class ="col-lg-6"id="total">
                 <h3>Cart Total</h3>
                 <hr style="width: 80%;"> 
                 <h6 style="display: inline-block;"> Total </h6> 
-                <h6 id= "FinalTotal"style="display: inline-block;"></h6>
+                <h6 id= "finalTotal"style="display: inline-block;"></h6>
                 
             </div>
 
@@ -80,7 +96,7 @@
 
 
     <!-- </div> -->
-    <script src="../js/cart.js"></script>
+    <script src="../js/cart2.js"></script>
     
 </body>
 </html>
