@@ -130,13 +130,10 @@ let products = data.ProductCollection;
     }
 
 
-<<<<<<< HEAD
 }
 
 //redirection to cart page
 checkoutCart.addEventListener('click', (e)=>{
-    location.href = "cart.html";
+    location.href = "cart.html"
 })
-=======
-}
->>>>>>> 058e323553f9fc1c26ff485ec2534595405d4817
+
