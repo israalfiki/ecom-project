@@ -1,8 +1,5 @@
-
 let form=document.forms.my
-
 form.addEventListener('submit',sendMessage); 
-
 function sendMessage(e){
     e.preventDefault()
     let name=form.elements.Name.value;
@@ -26,3 +23,8 @@ function sendMessage(e){
     })
     .then((res)=>res.json())
     .then((data)=>console.log(data))
+}
+
+
+
+
