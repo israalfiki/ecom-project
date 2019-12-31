@@ -45,29 +45,47 @@ xhr.onload = (res) => {
         pricediv.appendChild(PRICE);
 
         const Quantity =document.createElement('form');
-        Quantity.innerHTML="<p class='mt-4 mb-1'> <b>Quantity: </b></p> <input type='number' name='quantity' value=1 min=1 max="+ PRODUCT.Quantity  + " class='form-control rounded-pill w-75'>";
-        // let addBTN= document.createElement("button");
-        // addBTN.setAttribute('class',"btn btn-secondary rounded-pill w-100 p-0 mt-4 mb-0 row");
-        // let cartDiv=document.createElement("div");
-        // cartDiv.setAttribute("class","col-4 h-100");
-        // cartDiv.innerHTML="<img src='../assets/cart.png' class='img-fluid' >";
-        // let textDiv=document.createElement("div");
-        // textDiv.setAttribute("class","col-8 h-75 ");
-        // textDiv.innerHTML="<span class='text-light text-center fluid'> <b>Add to cart</b> </span>";
-        // addBTN.appendChild(cartDiv);
-        // addBTN.appendChild(textDiv);
+        Quantity.innerHTML="<p class='mt-4 mb-1'> <b>Quantity: </b></p> <input type='number' name='quantity' id='q' value=1 min=1 max="+ PRODUCT.Quantity  + " class='form-control rounded-pill w-75'>";
+
         let addBtn=document.createElement('p');
-       addBtn.innerHTML="<a class='btn  btn-secondary rounded-pill w-100  p-lg-2 mt-4 mb-0 text-light' href='#' role='button' > <img src='../assets/cart.png' height='30'>  <b>Add to cart</b></a>";
+       addBtn.innerHTML="<a class='btn  btn-secondary rounded-pill w-100  p-lg-2 mt-4 mb-0 text-light cart' href='#' role='button' id=" + ID +" > <img src='../assets/cart.png' height='30'>  <b>Add to cart</b></a>";
        Quantity.appendChild(addBtn);
 
-        // Quantity.setAttribute( "type","number");
-        // Quantity.setAttribute( "class","form-control rounded-pill w-75");
-        // Quantity.setAttribute( "name","quantity");
-        // Quantity.setAttribute( "value","1");
-        // Quantity.setAttribute( "min","1" );
-        // Quantity.setAttribute("max","5");
         pricediv.appendChild(Quantity);
-
+        let quantityInput= document.querySelector("#q");
+        let cartBtn=document.querySelector('.cart');
+        let myArr=[];
+        cartBtn.addEventListener('click', (e) => {
+            // quantity++;
+            console.log(cartBtn.id);
+            if (localStorage.hasOwnProperty('product') == true) {
+                myArr = JSON.parse(localStorage.getItem('product'));
+                console.log(myArr);
+                function productExists(fruit) {
+                    return fruit.ID === cartBtn.id;
+                }
+                result = myArr.findIndex(productExists);
+                console.log(result);
+                if (result != -1) {
+                    if(myArr[result].quantity==PRODUCT.Quantity)
+                    alert("This is the maximum limit to order of this product!");
+                    else
+                    console.log(quantityInput.value);
+                    myArr[result].quantity=Number(quantityInput.value);
+                }
+        
+                else {
+                    myArr.push({ ID: cartBtn.id, quantity: 1 });
+                }
+            }
+            else { myArr.push({ ID: cartBtn.id, quantity: 1 }); }
+            console.log(myArr);
+            let json = JSON.stringify(myArr);
+            localStorage.setItem('product', json);
+            console.log(JSON.parse(localStorage.getItem('product')));
+        
+        })
+        
 
     }
 }
